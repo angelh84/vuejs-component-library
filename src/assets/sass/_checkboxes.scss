@@ -1,0 +1,85 @@
+// -----------------------------
+// CHECKBOXES
+// -----------------------------
+
+.checkbox {
+    overflow: hidden;
+    input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1000;
+        margin: 0;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@mixin unchecked () {
+    content: " ";
+    display: inline-block;
+    margin-top: -1px;
+    margin-right: 8px;
+    width: 15px;
+    height: 15px;
+    background-color: $neutral-40;
+    color: $neutral-40;
+    font-size: 11px;
+    text-align: center;
+    vertical-align: middle;
+    @include transition(background-color 0.15s);
+}
+
+@mixin checked () {
+    content: "\f00c";
+    display: inline;
+    font-family: $font-awesome;
+    background-color: $primary-purple;
+    color: #fff;
+    padding: 2px;
+}
+
+.checkbox-label {
+    display: block;
+    height: 23px;
+    font-size: 14px;
+    font-weight: 400;
+    &::before {
+        @include unchecked;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    &.checked {
+        &::before {
+            @include checked;
+        }
+    }
+    &.right {
+        &::before {
+            display: none;
+        }
+        &::after {
+            @include unchecked;
+            margin-right: 0;
+            margin-left: 8px;
+        }
+        &.checked {
+            &::before {
+                display: none;
+            }
+            &::after {
+                @include checked;
+            }
+        }
+    }
+    span {
+        display: inline-block;
+    }
+}
+
+.checkbox-group-label {
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 500;
+}

@@ -1,0 +1,82 @@
+.notification-wrapper {
+    position: relative;
+    padding: 17px 15px 17px 50px;
+    max-width: 350px;
+    background-color: $primary-medical;
+    text-align: left;
+    @include box-shadow(0, 7px, 25px, rgba(0,0,0,0.2));
+}
+
+.notifications {
+    .notification-icon::before {
+        font-family: $font-awesome;
+    }
+
+    &.success {
+        .notification-icon::before {
+            color: $green-300;
+            content: "\f058";
+        }
+    }
+
+    &.warning {
+        .notification-icon::before {
+            color: $yellow-200;
+            content: "\f06a";
+        }
+    }
+    
+    &.critical {
+        .notification-icon::before {
+            color: $red-300;
+            content: "\f071";
+        }
+    }
+
+    &.info {
+        .notification-icon::before {
+            color: $secondary-tamarindo;
+            content: "\f05a";
+        }
+    }
+    
+    a {
+        display: inline-block;
+        margin-right: 15px
+    }
+}
+
+.notification-icon {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+    font-size: 18px;
+}
+
+.notification-title {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.notification-dismiss {
+    position: absolute;
+    top: 5px;
+    right: 0;   
+
+    i {
+        color: $neutral-60;
+        margin: 0;
+        font-size: 18px;
+
+        &:focus,
+        &:hover {
+            &::before {
+                color: #000;
+            }
+        }
+    }
+}
+
+.notification-message {
+    margin-bottom: 0;
+}

@@ -1,0 +1,65 @@
+.accordion {
+    width: 100%;
+    margin: 0 auto;
+    ul {
+        margin: 0;
+    }
+    li {
+        display: block;
+    }
+}
+
+.accordion-title {
+    font-size: 14px;
+    color: #000;
+    font-weight: 400;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &::before {
+        content: "\ed5a";
+        float: left;
+        font-family: $moon-icons;
+        margin-left: -35px;
+        font-size: 12px;
+    }
+    &:hover {
+        cursor: pointer;
+        color: $neutral-300;
+    }
+}
+
+.accordion-body {
+    padding-left: 40px;
+    margin: 0;
+    border-bottom: 1px solid $neutral-50;
+    width: 100%;
+    &:first-child {
+        border-top: 1px solid $neutral-50;
+    }
+    &:last-child {
+        border-bottom: 1px solid $neutral-50;
+    }
+    &.opened {
+        .accordion-content {
+            float: none;
+            opacity: 1;
+            height: auto;
+            @include transition (all 0.25s);
+        }
+        .accordion-title {
+            font-weight: 500;
+            &::before {
+                content: "\ed5b";
+            }
+        }
+    }
+}
+
+.accordion-content {
+    float: left;
+    opacity: 0;
+    height: 1px;
+    padding-top: 5px;
+    overflow: hidden;
+}

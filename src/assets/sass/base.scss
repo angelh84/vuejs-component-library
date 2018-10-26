@@ -1,0 +1,223 @@
+/* ================= BASE IMPORTS ================== */
+
+@import 'colors';
+@import 'variables';
+@import 'fonts';
+@import 'icons';
+@import 'helpers';
+
+// -----------------------------
+// ITS ALL ABOUT THAT BASE
+// -----------------------------
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body,
+p,
+a, 
+li,
+blockquote {
+    font-family: $roboto;
+    font-size: 14px;
+    font-weight: 300;
+    color: $neutral-800;
+    letter-spacing: -0.1px;
+    line-height: 1.6em;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html, 
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+a {
+    font-family: inherit;
+    font-weight: 500;
+    color: $primary-purple;
+    text-decoration: none;
+    margin-top: 12px;
+    &:hover, 
+    &:focus {
+        outline: none;
+        color: $purple-400;
+        text-decoration: underline;
+    }
+    &:focus {
+        color: $purple-500; 
+    }
+    &[disabled]{
+        opacity: 0.3;
+        text-decoration: none;
+        cursor: not-allowed;
+    }
+}
+
+ol,
+ul {
+  padding: 0;
+  margin-top: 20px;
+}
+
+ul li {
+    list-style-type: disc;
+}
+
+ol li {
+    list-style-type: decimal;
+}
+
+li {
+    list-style-position: outside;
+    margin-left: 25px;
+    padding-left: 10px;
+}
+
+blockquote {
+    padding-left: 15px;
+    font-style: italic;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid $neutral-50;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5 {
+    font-family: $roboto;
+    color: $text-color-default;
+    font-weight: 500;
+    letter-spacing: -0.1px;
+    line-height: 1em;
+}
+
+h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-top: 28px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 16px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+h4 {
+    font-size: 16px;
+    margin-top: 24px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.main-content {
+    .wrapper {
+        > p {
+            max-width: 620px;
+        }
+    }
+}
+
+
+// -----------------------------
+// VUE.js TRANSITION CLASSES
+// -----------------------------
+
+.fade-enter-active, 
+.fade-leave-active {
+    @include transition(opacity 0.25s);
+}
+.fade-enter, 
+.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+    transition: all .3s ease;
+}
+.slide-fade-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+    transform: translateX(10px);
+    opacity: 0;
+}
+
+/* Bounce */
+.bounce-enter-active {
+    animation: bounce-in .5s;
+}
+.bounce-leave-active {
+    animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ======================= COMPONENT IMPORTS ===================== */
+
+@import 'grid';
+@import 'buttons';
+@import 'forms';
+@import 'banners';
+@import 'tables';
+@import 'growlrs';
+@import 'modals';
+@import 'checkboxes';
+@import 'radios';
+@import 'toggles';
+@import 'tooltips';
+@import 'dropdowns';
+@import 'accordions';
+@import 'date';

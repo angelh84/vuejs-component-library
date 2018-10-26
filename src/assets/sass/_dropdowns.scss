@@ -1,0 +1,129 @@
+.dropdown {
+    &::after {
+        font-family: $font-awesome;
+        content: '\f107';
+        color: $neutral-200;
+        position: absolute;
+        top: 31px;
+        right: 5px;
+        font-size: 12px;
+        font-weight: bold;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &.compact::after {
+        top: 8px;
+    }
+
+    button {
+        text-align: left;
+    }
+    
+    ul {
+        margin-top: 0;
+    }
+
+    li {
+        display: block;
+        margin: 0;
+        &:hover, 
+        &:focus {
+            cursor: pointer;
+        }
+    }
+
+    .form-field {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    select {
+        position: absolute;
+        opacity: 0;
+        z-index: -1000;
+    }
+
+    .field-description {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .ease-out-enter-active, .ease-out-leave-active {
+        @include transition(opacity 0.2s ease-out);
+    }
+  
+    .ease-out-enter, .ease-out-leave-to  {
+        opacity: 0;
+    }
+  
+    .ease-out-enter-to, .ease-out-leave {
+        opacity: 1;
+    }
+}
+
+.options-wrapper {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    background-color: $primary-medical;
+    margin-top: 13px;
+    min-width: 125px;
+    @include box-shadow(2px, 3px, 6px, rgba(0, 0, 0, 0.2));
+
+    li {
+        font-weight: 400;
+        padding: 5px 15px;
+        &:hover, 
+        &:focus, &.selected {
+            background-color: $neutral-20;
+        }
+        &.clicked {
+            background-color: $primary-purple;
+            color: $primary-medical;
+        }
+    }
+
+    .field-wrapper {
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 10px;
+        .form-label {
+            display: none;
+        }
+    }
+
+    &.multiselect {
+        .checkbox {
+            &::before {
+                content: "\ee64";
+                font-family: $moon-icons;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 4px;
+            }
+        }
+        .clicked {
+            .checkbox {
+                &::before {
+                    content: "\ee63";
+                }
+            }
+        }
+    }
+}
+
+.field-description {
+    transition: opacity 0.20s;
+    &.hide {
+        opacity: 0;
+    }
+}
+
+
+.options-wrapper {
+    .field-wrapper::before {
+        top: 18px;
+    }        
+}

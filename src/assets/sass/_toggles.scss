@@ -1,0 +1,164 @@
+// -----------------------------
+// TOGGLE BUTTONS
+// -----------------------------
+
+.toggle {
+    overflow: hidden;
+    input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1000;
+        margin: 0;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    &.large {
+        .toggle-label {
+            &::before {
+                width: 42px;
+                height: 20px;
+                margin-top: 2px;
+            }
+            &.on {
+                .toggle-switch {
+                    left: 23px;
+                }
+            }
+            &.right {
+                &::after {
+                    width: 42px;
+                    height: 20px;
+                    margin-top: 2px;
+                }
+                &.on {
+                    .toggle-switch {
+                        right: 1px;
+                        left: auto;
+                    }
+                }
+                .toggle-switch {
+                    right: 22px;
+                }
+                .checkmark {
+                    right: 23px;
+                }
+            }
+            .checkmark {
+                left: 6px;
+                &::before {
+                    font-size: 13px;
+                }
+            }
+        }
+        .toggle-switch {
+            top: 3px;
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+
+@mixin off () {
+    content: " ";
+    display: block;
+    margin-right: 8px;
+    width: 30px;
+    height: 15px;
+    background-color: $neutral-40;
+    border-radius: 10px;
+    @include transition(background-color 0.15s);
+}
+
+@mixin on () {
+    background-color: $primary-purple;
+    padding: 2px;
+}
+
+.toggle-label {
+    position: relative;
+    display: block;
+    height: 23px;
+    font-size: 14px;
+    font-weight: 400;
+    &::before {
+        float: left;
+        margin-top: 4px;
+        @include off;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    &.on {
+        &::before {
+            @include on;
+        }
+        .toggle-switch {
+            left: 16px;
+            background-color: $primary-medical;
+        }
+    }
+    &.right {
+        text-align: right;
+        &::before {
+            display: none;
+        }
+        &::after {
+            @include off;
+            float: right;
+            margin-top: 4px;
+            margin-right: 0;
+            margin-left: 8px;
+        }
+        &.on {
+            &::before {
+                display: none;
+            }
+            &::after {
+                @include on;
+            }
+            .toggle-switch {
+                right: 1px;
+            }
+        }
+        .toggle-switch {
+            left: auto;
+            right: 16px;
+        }
+        .checkmark {
+            left: auto;
+            right: 16px;
+        }
+    }
+    .checkmark {
+        position: absolute;
+        left: 4px;
+        color: #fff;
+        &::before {
+            font-size: 10px;
+        }
+    }
+}
+
+.label-text-wrapper {
+    display: inline-block;
+}
+
+.toggle-group-label {
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.toggle-switch {
+    position: absolute;
+    top: 5px;
+    left: 1px;
+    z-index: 1;
+    display: block;
+    border-radius: 50%;
+    background-color: $neutral-70;
+    width: 13px;
+    height: 13px;
+    @include transition(all ease-out 0.15s);
+}

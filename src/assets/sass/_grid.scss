@@ -1,0 +1,4 @@
+@mixin column($number) {
+    float: left;
+    width: $number;
+}

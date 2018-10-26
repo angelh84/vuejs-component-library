@@ -1,0 +1,239 @@
+// -----------------------------
+// INPUTS
+// -----------------------------
+
+@mixin placeholder {
+    color: $neutral-400;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    @include placeholder();
+}
+input::-moz-placeholder { /* Firefox 19+ */
+    @include placeholder();
+}
+input:-ms-input-placeholder { /* IE 10+ */
+    @include placeholder();
+}
+input:-moz-placeholder { /* Firefox 18- */
+    @include placeholder();
+}
+
+.form-field {
+    font-size: 14px;
+    font-weight: 400;
+    color: $neutral-800;
+    display: block;
+    width: 100%;
+    height: 38px;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid $neutral-70;
+    border-left: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    background-color: transparent;
+    @include transition(border-color ease-in-out 0.2s);
+
+    &:focus {
+        outline: none;
+        border-bottom-color: $primary-purple;
+        border-bottom-width: 2px;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+        border-bottom: 2px solid $primary-purple;
+    }
+
+    &.textarea {
+        height: 100px;
+    }
+}
+
+.field-wrapper {
+    position: relative;
+    text-align: left;
+
+    &.valid,
+    &.error,
+    &.help {
+
+        .form-field {
+            @include transition(border-color ease-in-out 0.2s);
+            outline: none;
+            padding-right: 20px;
+        }
+
+        &::after,
+        &::before {
+            font-family: $moon-icons;
+            position: absolute;
+            right: 0;
+            top: 32px;
+            font-size: 13px;
+        }
+
+    }
+
+    &.valid {
+
+        .form-field {
+            border-bottom-color: $primary-purple;
+            border-bottom-width: 2px;
+        }
+
+        &::after {
+            content: '\ed6c';
+            color: $green-300;
+        }
+
+    }
+
+    &.error {
+
+        .form-field {
+            border-bottom-color: $red-300;
+            border-bottom-width: 2px;
+        }
+
+        &::after {
+            content: '\ED4D';
+            color: $red-300;
+        }
+
+    }
+
+    &.help {
+
+        &::after {
+            content: '\e9ba';
+            color: $neutral-200;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &.disabled {
+        opacity: 0.4;
+    }
+
+    &[class*="icon-"],
+    &[class*="fa-"] {
+
+        .form-field {
+            padding-left: 18px;
+        }
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            margin-top: -5px;
+            color: $neutral-600;
+            font-size: 13px;
+            right: auto;
+        }
+
+        &.icon-right {
+
+            .form-field {
+                padding-left: 0;
+                padding-right: 18px;
+            }
+
+            &::before {
+                right: 0;
+            }
+
+        }
+    }
+
+    [class*="btn-"] {
+        position: absolute;
+        left: 0;
+        top: 29px;
+        padding-right: 10px;
+        padding-left: 10px;
+
+        & + .form-field {
+            padding-left: 65px;
+        }
+
+        &.right {
+            left: auto;
+            right: 0;
+
+            & + .form-field {
+                padding-left: 0;
+                padding-right: 65px;
+            }
+        }
+    }
+}
+
+.form-label {
+    position: relative;
+    top: 15px;
+    opacity: 0;
+    letter-spacing: 0;
+    color: $neutral-900;
+    font-weight: 500;
+    font-size: 12px;
+    @include transition(all 0.2s ease-out);
+
+    &.show {
+        top: 5px;
+        opacity: 1;
+    }
+}
+
+.field-description {
+    font-size: 12px;
+}
+
+.prefix,
+.suffix {
+    position: absolute;
+    top: 30px;
+    padding-top: 2px;
+    padding-bottom: 4px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.prefix {
+    left: 0;
+    border-right: 1px solid $neutral-70;
+    padding-right: 5px;
+
+    & + .form-field {
+        padding-left: 40px;
+    }
+}
+
+.suffix {
+    right: 0;
+    padding-left: 5px;
+    border-left: 1px solid $neutral-70;
+
+    & + .form-field {
+        padding-right: 40px;
+    }
+}
+
+.daterangepicker {
+    display: none;
+    
+    &.dropdown-menu {
+        max-width: none;
+        border: 0;
+        z-index: 1050;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
