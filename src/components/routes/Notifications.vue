@@ -38,8 +38,8 @@
     
     <notification ref="success" group="success" class="success" title="Success Title" content="success content" />
     <notification ref="info" group="info" class="info" title="Info Title" content="info content" />
-    <notification ref="warning" group="warning" class="warning" title="Warning Title" content="warning content" />
-    <notification ref="critical" group="critical" class="critical" title="Critical Title" content="Used to help users avoid error situations. Consists of a description of potential errors. It should provide a recommended next step, and an option to be reminded at a later date. <br> <a href='#'>Link One</a> <a href='#'>Link Two</a>" />
+    <notification ref="warning" group="warning" position="bottom left" class="warning" title="Warning Title" content="warning content" />
+    <notification ref="critical" group="critical" position="top right" class="critical" title="Critical Title" content="Used to help users avoid error situations. Consists of a description of potential errors. It should provide a recommended next step, and an option to be reminded at a later date. <br> <a href='#'>Link One</a> <a href='#'>Link Two</a>" />
 
   </div>
 </template>

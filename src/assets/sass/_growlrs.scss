@@ -1,13 +1,14 @@
-.notification-wrapper {
+.vue-notification-wrapper {
     position: relative;
     padding: 17px 15px 17px 50px;
     max-width: 350px;
     background-color: $primary-medical;
     text-align: left;
+    margin-bottom: 8px;
     @include box-shadow(0, 7px, 25px, rgba(0,0,0,0.2));
 }
 
-.notifications {
+.vue-notification-group {
     .notification-icon::before {
         font-family: $font-awesome;
     }

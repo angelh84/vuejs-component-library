@@ -28,7 +28,8 @@ export default {
       this.$notify({
         group: this.group,
         title: this.title,
-        text: this.message
+        text: this.message,
+        duration: 1000
       })
     }
   },

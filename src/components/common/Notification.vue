@@ -1,5 +1,8 @@
 <template>
-  <notifications :group="group" :position="position">
+  <notifications 
+    :group="group" 
+    :position="position"
+  >
     <div slot="body" slot-scope="props">
       <span class="notification-icon"></span>
       <button class="notification-dismiss" @click="props.close">
@@ -36,7 +39,7 @@ export default {
         title: this.title,
         text: this.content,
         position: this.position,
-        duration: -1
+        duration: 2000
       })
     }
   }
