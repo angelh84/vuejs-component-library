@@ -20,7 +20,7 @@
     "daterangepicker": "^2.1.25",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
-    "moment": "^2.19.4",
+    "moment": "^2.29.2",
     "v-tooltip": "^2.0.0-rc.31",
     "vee-validate": "^2.0.3",
     "vue": "^2.5.2",
